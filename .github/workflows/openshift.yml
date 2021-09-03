@@ -2,7 +2,7 @@ name: OpenShift
 
 env:
   # ⬇️ EDIT with your registry and registry path.
-  REGISTRY: docker.pkg.github.com/burrsutter/myimages
+  REGISTRY: docker.pkg.github.com/burrsutter/nodegithubhaikus
   # ⬇️ EDIT with your registry username.
   REGISTRY_USER: burrsutter
   REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
