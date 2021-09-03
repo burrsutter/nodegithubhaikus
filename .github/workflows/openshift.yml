@@ -9,10 +9,9 @@ env:
   
   OPENSHIFT_SERVER: ${{ secrets.OPENSHIFT_SERVER }}
   OPENSHIFT_TOKEN: ${{ secrets.OPENSHIFT_TOKEN }}
-
-  APP_PORT: "3000"
-
   OPENSHIFT_NAMESPACE: "burrzinga-stage"
+  
+  APP_PORT: "3000"
 
 on:
   # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
@@ -64,13 +63,13 @@ jobs:
     # as well as many other tools.
 
     # https://github.com/redhat-actions/oc-login#readme
-    # - name: Log in to OpenShift
-    #  uses: redhat-actions/oc-login@v1
-    #  with:
-    #    openshift_server_url: ${{ env.OPENSHIFT_SERVER }}
-    #    openshift_token: ${{ env.OPENSHIFT_TOKEN }}
-    #    insecure_skip_tls_verify: true
-    #    namespace: ${{ env.OPENSHIFT_NAMESPACE }}
+    - name: Log in to OpenShift
+      uses: redhat-actions/oc-login@v1
+      with:
+        openshift_server_url: ${{ env.OPENSHIFT_SERVER }}
+        openshift_token: ${{ env.OPENSHIFT_TOKEN }}
+        insecure_skip_tls_verify: true
+        namespace: ${{ env.OPENSHIFT_NAMESPACE }}
 
     # This step should create a deployment, service, and route to run your app and expose it to the internet.
     # https://github.com/redhat-actions/oc-new-app#readme
